@@ -25,53 +25,80 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+
+
     <div class="container" ng-controller="MainCtrl">
     
       <div ng-include="'components/navbar/navbar.html'"></div>
     
-      <div class="jumbotron text-center">
+      <div class="jumbotron">
       
-            <input type="file" nv-file-select uploader="uploader"/><br/>
+      <div class="row">
+      
+      <div class="col-sm-4">
+      <input type="number" ng-model="age">Age<br />
+      <input type="radio" ng-model="sex" value="female"/>Female<br />
+      <input type="radio" ng-model="sex" value="male" /> Male<br />
+      
+ 
+      
+      </div>
+      
+      <div class="col-sm-4">
+           <h4>Topic</h4>
+      <input type="radio" ng-model="topic" value="sex" /> Sex<br />
+      <input type="radio" ng-model="topic" value="fortune" /> Fortune<br />
+      
+      </div>
+       <div class="col-sm-4">
+           
+            <input type="file" nv-file-select uploader="uploader"  /><br/>
         <ul>
             <li ng-repeat="item in uploader.queue">
                 Name: <span ng-bind="item.file.name"></span><br/>
                 <button ng-click="item.upload()">upload</button>
             </li>
         </ul>
+      </div>     
+      </div>
       
       
+            
+ 
+      
+      
+      
+ 
+            
  
       </div>
     
       <div class="row">
       
-      <div class="col-sm-6 col-md-4" ng-repeat="character in characters">
-      
-      	<h3>{{character.Name}}</h3>
+      <div class="col-sm-12" ng-repeat="character in characters">
       	
-      	  		<div class="media" >
-  <div class="media-left">
-    <a href="#">
-      
-      <img alt="" ng-src="http://localhost:8000{{character.Id | img_link}}{{character.Img_file_name}}/{{character.Img_content_type}}">
-    </a>
-  </div>
-  <div class="media-body">
-<!--     <h4 class="media-heading">{{b.pubdate |date:'medium'}}</h4><h3>{{b.title}}</h3>
-    {{b.contents}} -->
-  </div>
-</div>
-      	
-      	
-      	
-      
-      
+      	<div class="media" >
+  			<div class="media-left">
+    			<a href="#"><img class="img-rounded" alt="" ng-src="http://localhost:8000{{character.Id | img_link}}{{character.Img_file_name}}/{{character.Img_content_type}}"></a>
+  			</div>
+  			<div class="media-body">
+  				<div class="media-heading">
+  				{{character.Name}} {{character.Age}}v
+  				</div>
+  				<p>
+  					{{character.Moto}}
+  				</p>
+  				<p>
+  					{{character.Description}}
+  				
+  				</p>
+    			   
+  			</div>
+		</div>
+		<hr>
+             
       </div>
- 
-      </div>
-    
- 
- 
+     
     
     </div>
     
