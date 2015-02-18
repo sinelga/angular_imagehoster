@@ -6,9 +6,9 @@ angular.module('angularImagehoster')
 	  $scope.sex='female';
 	  $scope.age=25;
 	  $scope.topic='sex';
-	  var uploader =  $scope.uploader = new FileUploader({url:'http://localhost:8000/upload',removeAfterUpload:true }); 
+	  var uploader =  $scope.uploader = new FileUploader({url:'http://104.131.122.192:8000/upload',removeAfterUpload:true }); 
 	  	  
-		var Character = $resource("http://localhost\\:8000/api/:id", {
+		var Character = $resource("http://104.131.122.192\\:8000/uploadapi/:id", {
 			id : '@id'
 		}, {});
 		
